@@ -7,7 +7,7 @@ export default class Message extends Component {
   render() {
     const message = this.props.message.map((message, index) => {
       return (
-        <li key={index}>
+        <li key={message.id}>
           <p>
             Message posté par {message.pseudo} le {message.id} :
           </p>
@@ -15,7 +15,7 @@ export default class Message extends Component {
             {message.desc}
           </p>
 
-          <button onClick={() => this.props.onDelete(this.props.message.id)}>
+          <button onClick={() => this.props.onDelete(message.id)}>
             Supprimer le message
           </button>
         </li>
