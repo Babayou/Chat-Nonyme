@@ -1,0 +1,13 @@
+li {
+  list-style-type: none;
+  background-color: rgba(0, 0, 0, 0.062);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.568);
+}
+
+.message {
+  font-size: 1.5em;
+}
