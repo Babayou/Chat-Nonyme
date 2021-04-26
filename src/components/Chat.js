@@ -5,15 +5,24 @@ import Form from "./Form";
 import Message from "./Message";
 
 export default class Chat extends Component {
+  ////////////////////////////////////////////////////////////////////// State /////////////////////////////////////////////////////////////////
   state = {
     messages: [],
   };
+
+  ///////////////////////////////////////////////////////////////// Methode /////////////////////////////////////////////////////////////////////////
+
+  /* Lorsque le message est envoyé */
   addMessage = (id, message, pseudo, color) => {
-    let messages = this.state.messages.slice();
-    messages.push({ id: id, desc: message, pseudo: pseudo, color: color });
-    this.setState({ messages: messages });
+    this.setState({
+      messages: [
+        ...this.state.messages,
+        { id: id, desc: message, pseudo: pseudo, color: color },
+      ],
+    });
   };
 
+  /* Lorsque le message est supprimé */
   handleDelete = (id) => {
     const messages = this.state.messages.slice();
     const index = messages.findIndex(function (message) {
@@ -23,6 +32,7 @@ export default class Chat extends Component {
     this.setState({ messages: messages });
   };
 
+  ///////////////////////////////////////////////////////////////////// render ///////////////////////////////////////////////////////////////////////
   render() {
     return (
       <div>

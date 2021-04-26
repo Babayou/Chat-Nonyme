@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Message.css";
 
 export default class Message extends Component {
+  /////////////////////////////////////////////////////////////////////// Render ////////////////////////////////////////////////////////////////////////////
+
   render() {
     const message = this.props.message.map((message, index) => {
       return (

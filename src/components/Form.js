@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./Form.css";
+import { blague } from "./blague.js";
 
 export default class Form extends Component {
+  ///////////////////////////////// State ////////////////////////////////////////////////////
   initialState = {
     pseudo: "",
     message: "",
@@ -11,21 +13,26 @@ export default class Form extends Component {
 
   state = this.initialState;
 
+  ////////////////////////////////// Methode /////////////////////////////////////////////////////
+
+  /* Lorsque l'on ecrit dans l'input */
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
+  /* envoyer le message, si le pseudo est vide : Chat-Nonyme, si le message est vide : blague sur les chats, si le message est trop long : message d'erreur */
   handleSubmit = (e) => {
     e.preventDefault();
     const id = new Date().toLocaleString();
     let { message, pseudo, color } = this.state;
+
     if (pseudo === "") {
       pseudo = "Chat-Nonyme";
     }
+
     if (message === "") {
-      message =
-        "Qu'est ce qu'un chien demande quand il entre dans une pharmacie? Puis-je avoir un sirop contre ma toux?";
+      message = blague[Math.floor(Math.random() * blague.length)];
     }
 
     if (message.length > 280) {
@@ -39,6 +46,7 @@ export default class Form extends Component {
     }
   };
 
+  ///////////////////////////////////////////////////////////// render /////////////////////////////////////////////////////////////////::
   render() {
     return (
       <div>
